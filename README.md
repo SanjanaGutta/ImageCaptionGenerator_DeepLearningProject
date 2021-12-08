@@ -1,8 +1,10 @@
 # ImageCaptionGenerator_DeepLearningProject
 
-This project generates captions for images. In order to test the project with different images, following steps are to be followed.
+This project generates captions for images. The task here is to caption images using artificial intelligence, where when faced by an image the machine produces a human understandable sentence and the produced sentence is a valid description of the content of the image. To achieve this Deep Learning models such as CNN-LSTM models have been used. The models are trained on Flickr8k dataset which contains 8000 images, of which 6000 images are used for training and 2000 for testing/validation.
 
-## Testing with different images
+The main objective is to generate a sensual caption to a new image after training on the dataset.
+
+## Generating captions for different images
 
 ### 1. Clone the project
 git clone the project into your local machine
@@ -25,3 +27,32 @@ After all the required changes are made to the notebook, run the entire jupyter 
 ### 5. Testing for other images
 
 Repeat step 2 and step 3 and now execute only the code block below the heading *Generate Captions for images*
+
+
+## Training the model from scratch
+
+### 1. Download the dataset
+
+Download the dataset from https://github.com/goodwillyoga/Flickr8k_dataset and place them in the same folder where there are jupyter notebooks
+
+### 2. Train the model
+
+Open *Image Captioning - Training.ipynb*
+
+As discussed above, two different feature extractors are used namely Xception and InceptionV3. Use them accordingly.
+- In the extract features function, if you want to use InceptionV3 then say **model = InceptionV3(include_top=False, pooling='avg' )** or if you want to use Xception then say **model = Xception(include_top=False, pooling='avg' )**.
+- Similarly, at the end before the plot, save the model accordingly. If you have used InceptionV3 model for feature extraction then say **model.save('InceptionV3_model.h5')**. Or if you have used Xception model for feature extraction then say **model.save('InceptionV3_model.h5')**
+
+After making these changes run the entire notebook.
+
+
+### 3. Testing the model
+
+Open *Image Captioning - Testing.ipynb*
+
+Similar to the changes made in the training file, Use InceptionV3 or Xception according to what is used in the training file. If InceptionV3 is used for training, then use the InceptionV3 for testing as well. Same is the case with Xception.
+
+
+### 4. Generating Captions for different images
+
+Follow the steps given at the start of this document to generate captions for different images.
